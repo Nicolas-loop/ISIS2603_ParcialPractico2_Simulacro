@@ -13,7 +13,7 @@
 
           <div class="mt-auto d-flex justify-content-between align-items-center">
             <small class="text-muted">Porciones: {{ recipe.porciones }}</small>
-            <a class="btn btn-primary btn-sm" [routerLink]="['/recipe', recipe.id]">Ver receta</a>
+            <a class="btn btn-primary btn-sm" [routerLink]="['/recipe/{recipe.id}', recipe.id]">Ver receta</a>
           </div>
         </div>
       </div>
