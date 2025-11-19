@@ -1,4 +1,4 @@
-<div class="recipe-detail">
+<div class="recipe-detail" *ngIf="recipe">
   <h2>{{ recipe.nombre }}</h2>
   <img
     class="recipe-detail-img"
@@ -14,10 +14,9 @@
 
   <h3>Pasos</h3>
   <ol>
-    @for(step of recipe.pasos; track step){
-    <li>
-      {{ step }}
-    </li>
-    }
+    <li *ngFor="let step of recipe.pasos">{{ step }}</li>
   </ol>
+</div>
+<div *ngIf="!recipe">
+  <p>Cargando receta...</p>
 </div>

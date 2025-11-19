@@ -1,10 +1,5 @@
 <div>
   <div>
-    @if (selected) {
-    <div *ngIf="selected">
-      <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
-    </div>
-    }
     <table>
       <thead>
         <tr>
@@ -15,8 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        @for(recipe of recipes; track recipe.id){
-        <tr (click)="onSelect(recipe)">
+        <tr *ngFor="let recipe of recipes" (click)="onSelect(recipe)">
           <td>{{ recipe.nombre }}</td>
           <td>
             <img
@@ -28,7 +22,6 @@
           <td>{{ recipe.porciones }}</td>
           <td>{{ recipe.tiempo_minutos }} min</td>
         </tr>
-        }
       </tbody>
     </table>
   </div>
