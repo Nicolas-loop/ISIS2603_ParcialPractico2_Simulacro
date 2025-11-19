@@ -5,7 +5,7 @@ import { Ingredient } from '../Ingredient';
   selector: 'app-ingredient-list',
   standalone: false,
   templateUrl: './ingredient-list.component.html',
-  styleUrl: './ingredient-list.component.css',
+  styleUrls: ['./ingredient-list.component.css'],
 })
 export class IngredientListComponent implements OnInit {
   @Input() ingredients: Ingredient[] = [];

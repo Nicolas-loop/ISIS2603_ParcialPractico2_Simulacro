@@ -1,28 +1,22 @@
-<div>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Receta</th>
-          <th>Imagen</th>
-          <th>Porciones</th>
-          <th>Tiempo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let recipe of recipes" (click)="onSelect(recipe)">
-          <td>{{ recipe.nombre }}</td>
-          <td>
-            <img
-              class="recipe-img"
-              [src]="recipe.imagen"
-              alt="{{ recipe.imagen }}"
-            />
-          </td>
-          <td>{{ recipe.porciones }}</td>
-          <td>{{ recipe.tiempo_minutos }} min</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container py-4">
+  <div class="row justify-content-center gy-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let recipe of recipes">
+      <div class="card h-100">
+        <img [src]="recipe.imagen" class="card-img-top" alt="{{ recipe.nombre }}" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ recipe.nombre }}</h5>
+
+          <div class="mb-2">
+            <strong>Ingredientes:</strong>
+            <app-ingredient-list [ingredients]="recipe.ingredientes"></app-ingredient-list>
+          </div>
+
+          <div class="mt-auto d-flex justify-content-between align-items-center">
+            <small class="text-muted">Porciones: {{ recipe.porciones }}</small>
+            <a class="btn btn-primary btn-sm" [routerLink]="['/recipe', recipe.id]">Ver receta</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
